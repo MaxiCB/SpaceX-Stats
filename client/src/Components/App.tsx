@@ -9,20 +9,20 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     axios
-      .get("https://api.spacexdata.com/v4/launches/past")
+      .get("http://localhost:5000/api/launches")
       .then((res) => {
         const data = res.data;
         data.forEach((element: any) => {
           const newRocket: IRocket = {
-            date: element.date_utc || "",
-            details: element.details || "",
-            name: element.name || "",
-            rocket_image: element.links.flickr.original[0] || "",
-            patch_image: element.links.patch.large || "",
-            reddit: element.links.reddit.campaign || "",
-            webcast: element.links.webcast || "",
-            article: element.links.article || "",
-            wikipedia: element.links.wikipedia || "",
+            date: element.date,
+            details: element.details,
+            name: element.name,
+            rocket_image: element.rocket_image,
+            patch_image: element.patch_image,
+            reddit: element.reddit.campaign,
+            webcast: element.webcast,
+            article: element.article,
+            wikipedia: element.wikipedia,
           };
           tempRockets.push(newRocket);
         });
@@ -33,8 +33,8 @@ const App: React.FC = () => {
 
   return (
     <div style={{ display: "grid", gridTemplateColumns: "auto auto auto" }}>
-      {rocketData.map((rocket) => {
-        return <Rocket rocket={rocket} key={rocket.name} />;
+      {rocketData.map((rocket, index) => {
+        return <Rocket rocket={rocket} key={index} />;
       })}
     </div>
   );
