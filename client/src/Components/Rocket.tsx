@@ -3,7 +3,7 @@ import RocketImage from "./RocketImage";
 import RocketPatch from "./RocketPatch";
 import RocketSocial from "./RocketSocial";
 
-interface Rocket {
+export interface IRocket {
   date: string;
   details: string;
   name: string;
@@ -16,7 +16,7 @@ interface Rocket {
 }
 
 interface RocketProps {
-  rocket: Rocket;
+  rocket: IRocket;
 }
 
 const Rocket: React.FC<RocketProps> = ({ rocket }) => {
@@ -25,13 +25,12 @@ const Rocket: React.FC<RocketProps> = ({ rocket }) => {
       style={{
         color: "white",
         textAlign: "center",
+        backgroundColor: "#F93943",
+        borderRadius: "10px",
+        margin: 10,
       }}
     >
       <div>
-        <RocketImage
-          image_link={rocket.rocket_image}
-          rocket_name={rocket.name}
-        />
         <RocketPatch
           image_link={rocket.patch_image}
           rocket_name={rocket.name}
@@ -45,7 +44,7 @@ const Rocket: React.FC<RocketProps> = ({ rocket }) => {
       />
       <h1>{rocket.name}</h1>
       <h4>{rocket.date}</h4>
-      <p style={{ width: "50%" }}>{rocket.details}</p>
+      <p>{rocket.details}</p>
     </div>
   );
 };
