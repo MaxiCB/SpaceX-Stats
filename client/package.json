@@ -1,7 +1,18 @@
 {
-  "name": "client",
+  "name": "SpaceX-Stats-Frontend",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxiCB/SpaceX-Stats.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxiCB/SpaceX-Stats/issues"
+  },
+  "homepage": "https://github.com/MaxiCB/SpaceX-Stats#readme",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
